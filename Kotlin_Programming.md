@@ -309,3 +309,263 @@ Enter your second value:
 20
 10 + 20 = 30
 ```
+### Conditional Expressions in Kotlin
+
+```Kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * Program to identify if any given Integer number is even or not*/
+
+import java.util.*
+
+fun main(){
+    val s:Scanner = Scanner(System.`in`)
+    println("Enter a number")
+    val number = s.nextInt()
+    if(number%2 == 0){
+        println("Even")
+    }else{
+        println("Not Even")
+    }
+}
+```
+***Output***
+
+```
+Enter a number
+6
+Even
+```
+
+***Using functions with Conditional Expressions***
+```kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * Program to identify if any given Integer number is even or not*/
+
+import java.util.*
+
+fun main(){
+    val s:Scanner = Scanner(System.`in`)
+    println("Enter a number")
+    val n = s.nextInt()
+    isEven(n)
+}
+
+fun isEven(number:Int){
+    if(number%2 == 0){
+        println("Even")
+    }else{
+        println("Not Even")
+    }
+}
+```
+
+***Output will be the same as above***
+
+***Kotlin Conciseness example***
+```kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * Program to identify if any given Integer number is even or not*/
+
+import java.util.*
+
+fun main(){
+    val s:Scanner = Scanner(System.`in`)
+    println("Enter a number")
+    val n = s.nextInt()
+    if(n%2==0) println("Even") else println("Not Even")
+}
+```
+***Output will be the same as above***
+
+```Kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * Program to identify if any given Integer number is even or not*/
+
+import java.util.*
+
+fun main(){
+    val s:Scanner = Scanner(System.`in`)
+    println("Enter a number")
+    val n = s.nextInt()
+    if(isEven(n)) println("Even") else println("Not Even")
+}
+
+fun isEven(number:Int) = if(number%2==0) true else false
+```
+
+***Output will be the same as above***
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * Program to identify if any given Integer number is even or not*/
+
+import java.util.*
+
+fun main(){
+    val s:Scanner = Scanner(System.`in`)
+    println("Enter a number")
+    val n = s.nextInt()
+    val status = if(n%2==0) true else false
+    if(status) println("Even") else println("Not Even")
+}
+```
+
+***Output will be the same as above***
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * Program to identify if any given Integer number is even or not*/
+
+import java.util.*
+
+fun main(){
+    val s:Scanner = Scanner(System.`in`)
+    println("Enter a number")
+    val n = s.nextInt()
+    if(if(n%2==0) true else false) println("Even") else println("Not Even")
+}
+```
+
+***Output will be the same as above***
+
+**Logical Operators in Kotlin**
+
+- && -> And
+- || -> Or
+- ! -> Logical Not
+
+#### Assignment
+
+***A certain grade of steel has to be graded when Hardness, tensile strength and carbon content are given. these values must meet the following criteria***
+- condition 1: Hardness must be greater than or equal to 50
+- condition 2: Tensile Strength must be Less than or equal to 5600
+- condition 3: carbon content must be less than 0.7
+
+***The grades must be printed as follows***
+- if all three conditions are met, the grade is 10
+- if only 1 & 2 are met, the grade is 9
+- if only 2 & 3 are met, the grade is 8
+- If only 1 & 3 are met, the grade is 7
+- If only one of the three conditions is true and the others are false, the grade is 6.
+- If no codition is met, the grade is 5
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * Program to identify if any given Integer number is even or not*/
+
+import java.util.*
+
+fun gradeSteel(hardness: Int, tensileStrength: Int, carbonContent: Double): Int {
+    val condition1 = hardness >= 50
+    val condition2 = tensileStrength <= 5600
+    val condition3 = carbonContent < 0.7
+
+    return when {
+        condition1 && condition2 && condition3 -> 10
+        condition1 && condition2 -> 9
+        condition2 && condition3 -> 8
+        condition1 && condition3 -> 7
+        condition1 || condition2 || condition3 -> 6
+        else -> 5
+    }
+}
+
+fun main() {
+    val hardness = 49
+    val tensileStrength = 5600
+    val carbonContent = 0.7
+
+    val grade = gradeSteel(hardness, tensileStrength, carbonContent)
+    println("The grade of the steel is: $grade")
+}
+```
+
+### When Expression
+`when` in kotlin is like `switch` in java & C Programming language. `when` is used when you have multiple branches and when the code looks complex with these multiple branches if used with an if condition. 
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+import java.util.Scanner
+
+fun main(){
+    println("Choose your option:\n1.print Hello world\n2.calculate area of rect")
+    val s:Scanner = Scanner(System.`in`)
+    val input = s.nextInt()
+    when(input){
+        1 -> println("Hello World")
+        2 ->{
+            println("Enter length:")
+            val l = s.nextInt()
+            println("Enter breadth:")
+            val b = s.nextInt()
+            println(l*b)
+        }
+
+        else -> println("Irrelevant Option chosen")
+    }
+}
+```
+
+***Output***
+```
+Choose your option:
+1.print Hello world
+2.calculate area of rect
+3
+Irrelevant Option chosen
+
+Process finished with exit code 0
+```
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+import java.util.Scanner
+
+fun main(){
+    println("Choose your option:\n1.Square\n2.Twice\n3.Half")
+    val s:Scanner = Scanner(System.`in`)
+    val input = s.nextInt()
+
+    println("Enter a number")
+    val number = s.nextInt()
+
+    val result = when(input){
+        1 -> number*number
+        2 -> 2*number
+        3 -> number/2
+        else -> 0
+    }
+
+    println(result)
+}
+```
+
+```
+Choose your option:
+1.Square
+2.Twice
+3.Half
+1
+Enter a number
+5
+25
+
+Process finished with exit code 0
+
+```

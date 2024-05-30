@@ -1,13 +1,21 @@
 package com.nareshit.kotlinprograms
 
-// Import java's Scanner Class
 import java.util.Scanner
 
 fun main(){
-    println("Enter your first value:")
+    println("Choose your option:\n1.Square\n2.Twice\n3.Half")
     val s:Scanner = Scanner(System.`in`)
-    val a = s.nextInt()
-    println("Enter your second value:")
-    val b = s.nextInt()
-    println("$a + $b = ${a+b}")
+    val input = s.nextInt()
+
+    println("Enter a number")
+    val number = s.nextInt()
+
+    val result = when(input){
+        1 -> number*number
+        2 -> 2*number
+        3 -> number/2
+        else -> 0
+    }
+
+    println(result)
 }
