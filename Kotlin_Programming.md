@@ -569,3 +569,125 @@ Enter a number
 Process finished with exit code 0
 
 ```
+
+### Loops in Kotlin
+When you want to repeat a set of statements for some number of times or till the condition fails, we can employ loops. 
+
+`in` -> is a keyword in kotlin that works with range of values or a collection. 
+
+The `for` loop in Kotlin
+
+`..` -> this defines the range 1..10 -> it means 1 to 10.
+
+```kotlin
+
+fun main(){
+    for(i in 1..10){
+        println("$i")
+    }
+}
+```
+
+```kotlin
+fun main(){
+    for(i in 23..45){
+        println("$i")
+    }
+}
+```
+
+##### Assignment:
+Print all the even numbers between any given range of numbers. Read the range from the user. Also include both the Lower bound and upper bound
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+import java.util.Scanner
+
+fun main() {
+    val s = Scanner(System.`in`)
+    println("Enter the lower bound")
+    val lowerBound = s.nextInt()
+    println("Enter the lower bound")
+    val upperBound = s.nextInt()
+    if(lowerBound%2 == 0){
+        for(i in lowerBound .. upperBound step 2) {
+            println(i)
+        }
+    }else{
+        for(i in lowerBound+1 .. upperBound step 2) {
+            println(i)
+        }
+    }
+
+}
+```
+
+`step` is a keyword in kotlin that helps you increase the increment or decrement value of the loop counter (ie., i in this case)
+
+```kotlin
+fun main() {
+ for(i in 20 downTo 1){
+     print("$i ")
+ }
+}
+```
+
+`downTo` is a keyword in kotlin that helps us come from an upperbound to a lowerbound. By default, the loop counter decremtns to the next value.
+
+##### Assignment: Print all the odd numbers from 234 down to 189
+
+```KOTLIN
+fun main() {
+ for(i in 233 downTo 189 step 2){
+     print("$i ")
+ }
+}
+```
+
+`while` & `do-while` works the same way as the ones we have in `c`, `c++`, `java` & `python`
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+import java.util.Scanner
+
+fun main(){
+    var i = 10
+    while(i>=1){
+        print("$i ")
+        i--
+    }
+
+    println()
+
+    do{
+        print("$i ")
+        i++
+    }while(i<=10)
+}
+```
+
+`Repeat`
+
+```kotlin
+fun main(){
+    repeat(10){
+        print("Pavan ")
+    }
+}
+```
+
+### Assignments:
+
+1. Write a program to print if a given number is prime or not
+2. Print all the prime numbers between any given range of numbers
+3. print all the prime numbers that are palindromic in nature between 1 and 10,000.
+4. Write a program to find if a number is present in the fibnocci series 
+5. Write a program to find the factorial of any given number. 
+
+[Test Link here](https://forms.gle/aQnoJ3dAMRLMv9WT9)
+
+
+
+
