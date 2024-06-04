@@ -688,6 +688,84 @@ fun main(){
 
 [Test Link here](https://forms.gle/aQnoJ3dAMRLMv9WT9)
 
+### Arrays in Kotlin
+Array is one of the most fundamental Data structure in practically all programming languages. The idea behind an array is to store multiple items of the same data type, such as integers or strings under a single variable name. 
 
+Arrays are used to organize data in programming so that a related set of values can easily be stored or searched for.
 
+**Important points to make a note of**
+1. They are stored in contigeous memory locations.
+2. They can be accessed programmatically through their indices.
+3. They are mutable.
+4. Their size is fixed. 
+5. The index of an array starts at 0 and ends at 1 less than the actual size. 
 
+***Create an array with the help of `arrayOf()` & `arrayOf<DATATYPE>()` functions. 
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+import java.util.Scanner
+
+fun main(){
+    val a = arrayOf(1,2,3,4,5) // even declaring an array as val the values can still change
+    a[1] = 10
+    // How do we know the size of an array
+    println("The size of the array is ${a.size}")
+    // Loop through the array
+    for(i in a){
+        print("$i ")
+    }
+
+    println()
+
+    for(i in 0..a.size-1){
+        print("${a[i]} ")
+    }
+
+    println()
+    println(a.get(3))
+    a.set(2,12)
+    println(a.get(2))
+}
+```
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+import java.util.Scanner
+
+fun main() {
+    var s = arrayOf<String>("TDP","BJP","JSP","YSRCP","OTHERS")
+    for(i in s){
+        print("$i ")
+    }
+}
+```
+
+**Using Array() constructor**
+```kotlin
+package com.nareshit.kotlinprograms
+
+import java.util.Scanner
+
+fun main() {
+    println("Enter the size of the array")
+    val s = Scanner(System.`in`)
+    val l = s.nextInt()
+    val a = Array<Int>(l,{i->i*1})
+    var i = 0
+    while(i<a.size){
+        println("Enter the array value")
+        val n = s.nextInt()
+        a[i] = n // a.set(i,n)
+        i++
+    }
+
+    for(j in a){
+        print("$j ")
+    }
+}
+```
+
+### OOPs in Kotlin
