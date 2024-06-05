@@ -769,3 +769,215 @@ fun main() {
 ```
 
 ### OOPs in Kotlin
+OOP stands for `Object oriented Programmig`
+
+Procedural Programming is all about Writing the procedures or methods that operate on data. While, OOP is about creating objects that contain both the data and methods.
+
+Advantages:
+- Faster and easier to run
+- Provides clear structure of the program. 
+- DRY - Do Not Repeat Yourself
+
+**Kotlin Objects and Classes**
+
+- An Object is any real world entity. This object should exhibit two properties
+  - Attributes
+  - Behaviors
+
+- A class is a blueprint of an Object. 
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+/*
+* Dog -> real world Entity
+* 3 attributes
+*   - name
+*   - age
+*   - weight
+* 2 behaviors
+*   - display()
+*   - bark()
+* */
+
+class Dog{
+    var name:String? = null
+    var age:Int?=null
+    var weight:Double? = null
+    fun display(){
+        println("$name of age $age is of weight $weight")
+    }
+
+    fun bark(){
+        println("Bow! Bow!")
+    }
+}
+
+fun main(){
+    // Create a copy of the class (Object or Instance)
+    val tommy = Dog()
+    tommy.name = "Tim Tommy"
+    tommy.age = 10
+    tommy.weight = 12.5
+    tommy.bark()
+    tommy.display()
+
+    val jimmy = Dog()
+    jimmy.name = "Charlie Jimmy"
+    jimmy.age = 12
+    jimmy.weight = 18.34
+    jimmy.display()
+}
+```
+
+***Output***
+```
+Bow! Bow!
+Tim Tommy of age 10 is of weight 12.5
+Charlie Jimmy of age 12 is of weight 18.34
+
+Process finished with exit code 0
+```
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+/*
+* Dog -> real world Entity
+* 3 attributes
+*   - name
+*   - age
+*   - weight
+* 2 behaviors
+*   - display()
+*   - bark()
+* */
+
+class Dog{
+    var name:String? = null
+    var age:Int?=null
+    var weight:Double? = null
+    fun display(){
+        println("$name of age $age is of weight $weight")
+    }
+
+    fun bark(){
+        println("Bow! Bow!")
+    }
+}
+
+fun main(){
+    // Create a copy of the class (Object or Instance)
+    val tommy = Dog()
+    tommy.name = "Tim Tommy"
+    tommy.age = 10
+    tommy.weight = 12.5
+    tommy.bark()
+    tommy.display()
+
+    val jimmy = tommy
+    jimmy.name = "Sandra"
+    jimmy.display()
+}
+```
+
+***output***
+```
+Bow! Bow!
+Tim Tommy of age 10 is of weight 12.5
+Sandra of age 10 is of weight 12.5
+
+Process finished with exit code 0
+```
+
+### Constructors in Kotlin
+
+Constructors are basically helpful in initializing the attributes of a class during the process of object creation. 
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+/*
+* Dog -> real world Entity
+* 3 attributes
+*   - name
+*   - age
+*   - weight
+* 2 behaviors
+*   - display()
+*   - bark()
+* */
+
+class Dog(var name:String?, var age:Int?, var weight:Double?){
+    fun display(){
+        println("$name of age $age is of weight $weight")
+    }
+    fun bark(){
+        println("Bow! Bow!")
+    }
+}
+fun main(){
+    // Create a copy of the class (Object or Instance)
+    val tommy = Dog("Tim Tommy", 10,12.5)
+    tommy.bark()
+    tommy.display()
+
+    val jimmy = Dog("Charlie Gaplin", 12, 14.35)
+    jimmy.name = "Sandra"
+    jimmy.display()
+}
+```
+
+```
+Bow! Bow!
+Tim Tommy of age 10 is of weight 12.5
+Sandra of age 12 is of weight 14.35
+
+Process finished with exit code 0
+```
+
+#### Overloading Constructors
+```kotlin
+package com.nareshit.kotlinprograms
+
+/*
+* Dog -> real world Entity
+* 3 attributes
+*   - name
+*   - age
+*   - weight
+* 2 behaviors
+*   - display()
+*   - bark()
+* */
+
+class Dog(var name:String?, var age:Int?, var weight:Double?){
+
+    constructor(name:String?):this(name,10,12.34)
+    constructor(name:String?, weight: Double?):this(name, 14, weight)
+    fun display(){
+        println("$name of age $age is of weight $weight")
+    }
+    fun bark(){
+        println("Bow! Bow!")
+    }
+}
+fun main(){
+    // Create a copy of the class (Object or Instance)
+    val tommy = Dog("Tim Tommy", 10,12.5)
+    tommy.bark()
+    tommy.display()
+
+    val jimmy = Dog("Sandra")
+    jimmy.display()
+}
+```
+
+```
+Bow! Bow!
+Tim Tommy of age 10 is of weight 12.5
+Sandra of age 10 is of weight 12.34
+
+Process finished with exit code 0
+```
+
