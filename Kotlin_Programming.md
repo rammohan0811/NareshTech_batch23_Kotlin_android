@@ -1144,5 +1144,55 @@ fun main(){
 
 Existence in multiple forms is called polymorphism.
 - Overloading (compile Time Polymorphism)
-- Overriding (Run time Polymorphism)
+- Overriding (Run time Polymorphism)  
+**Overloading**
+```Kotlin
+package com.nareshit.kotlinprograms
 
+fun main(){
+    println(sum(10,20,30))
+    println(sum(10.45,34.56))
+}
+
+fun sum(a:Int, b:Int):Int{
+    return a+b
+}
+fun sum(a:Int, b:Int, c:Int):Int{
+    return a+b+c
+}
+
+fun sum(a:Double, b:Double):Double{
+    return a+b
+}
+```
+
+```
+60
+45.010000000000005
+```
+
+**Overriding**
+```Kotlin
+package com.nareshit.kotlinprograms
+
+fun main(){
+    val s = Second()
+    println(s.sum(10,20))
+    println(s.sum(10,20,30))
+}
+open class First{
+    open fun sum(a:Int, b:Int) = a+b
+    fun sum(a:Int, b:Int, c:Int) = a+b+c
+}
+
+class Second:First(){
+    override fun sum(a:Int, b:Int) = a*b
+}
+```
+
+```
+200
+60
+
+Process finished with exit code 0
+```
