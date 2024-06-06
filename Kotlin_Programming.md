@@ -981,3 +981,168 @@ Sandra of age 10 is of weight 12.34
 Process finished with exit code 0
 ```
 
+### Inheritance in Kotlin
+
+This is another fundamentally very important concepts in OOPs. Inheritance is the process of acquiring the properties and behaviors of one class into another class. 
+
+Inheritance is fundamentally used for code-reusability. 
+
+**Important Note** - In kotlin, all classes have a default super class, `Any`.
+
+```kotlin
+class Pavan{
+    // The default super class would be `Any`
+}
+```
+
+`Any` class has got three methods
+- `equals(...)`
+- `hashCode(...)`
+- `toString(...)`
+
+These methods are present in any class that you create. 
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+/*
+* Dog -> real world Entity
+* 3 attributes
+*   - name
+*   - age
+*   - weight
+* 2 behaviors
+*   - display()
+*   - bark()
+* */
+
+class Dog(var name:String?, var age:Int?, var weight:Double?){
+
+    constructor(name:String?):this(name,10,12.34)
+    constructor(name:String?, weight: Double?):this(name, 14, weight)
+    fun display(){
+        println("$name of age $age is of weight $weight")
+    }
+    fun bark(){
+        println("Bow! Bow!")
+    }
+}
+fun main(){
+    // Create a copy of the class (Object or Instance)
+    val tommy = Dog("Tim Tommy", 10,12.5)
+    tommy.bark()
+    tommy.display()
+
+    val jimmy = tommy
+    jimmy.display()
+
+    println(tommy.hashCode())
+    println(jimmy.hashCode())
+    println(tommy.equals(jimmy))
+    println(tommy.toString())
+    println(jimmy.toString())
+}
+```
+
+***Output***
+```
+Bow! Bow!
+Tim Tommy of age 10 is of weight 12.5
+Tim Tommy of age 10 is of weight 12.5
+2047526627
+2047526627
+true
+com.nareshit.kotlinprograms.Dog@7a0ac6e3
+com.nareshit.kotlinprograms.Dog@7a0ac6e3
+
+Process finished with exit code 0
+```
+
+***Important Point***- In kotlin, all classes are final by default. Inorder to subclass a class, declare the class with `open` keyword. 
+
+```Kotlin
+class EXample{} // This class is final. not extendable. 
+```
+
+```kotlin
+open class Example{} // This is extendable. 
+```
+
+In java, we use `extends` keyword to inherit a class into another class. In Kotlin, we have `:` operator doing the job of `extends`
+
+```kotlin
+open class Base(p:Int)
+class Derived(p:Int):Base(p)
+```
+
+```koltin
+package com.nareshit.kotlinprograms
+
+open class A(var name:String?, var age:Int?){
+    fun display(){
+        print("$name $age ")
+    }
+}
+
+class B(var n:String?, var a:Int?, var salary:Int?):A(n,a){
+    fun display2(){
+        display()
+        print(salary)
+    }
+}
+
+fun main(){
+    val b = B("Pavan",30, 10000)
+    b.display2()
+}
+```
+
+***Output***
+```
+Pavan 30 10000
+Process finished with exit code 0
+```
+
+### Encapsulation
+
+Encapsulation is a fundamental OOps concept. Encapsulation refers to the bundling of data and methods that operate on the data with in a single unit, is called as class.
+
+Encapsulation is a way to hide the implementation details of a class from outside access and only exposing a public interface that can be used to interact with the class. 
+
+**Modifiers in Kotlin**
+- `private` - the element that is declared private cannot be accessed from outside the kotlin file that is defined in. These elements can only be accessed in the same place where they are defined. 
+- `public` - Elements are accessed from anywhere
+- `protected` - Same as private except that subclasses can access the class/interface elements. 
+- `internal` - Anything in the module (folder) can be accessed. 
+
+```Kotlin
+package com.nareshit.kotlinprograms
+class Internals{
+    internal var a = 10
+}
+fun main(){
+    var i = Internals()
+    println("${i.a}")
+}
+```
+
+```
+package com.nareshit.kotlinprograms
+
+fun main(){
+    var i = Internals()
+    i.a = 90
+    println(i.a)
+}
+```
+
+**If a class with  a certain functionality is defined in a different package and the elements in the class are accessible either directly (if they are declared as public) or with the help of helper methods (incase of Private or Protected modifiers), you write the import statement to import that module or a specific class.**
+
+**If a class in the same module (Package) needs to be accessed, you can access it direcly. no need of import statements.**
+
+### Polymorphism in Kotlin
+
+Existence in multiple forms is called polymorphism.
+- Overloading (compile Time Polymorphism)
+- Overriding (Run time Polymorphism)
+
