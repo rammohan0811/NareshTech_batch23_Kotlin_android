@@ -1,15 +1,31 @@
 package com.nareshit.kotlinprograms
 
-fun main(){
-    val s = Second()
-    println(s.sum(10,20))
-    println(s.sum(10,20,30))
-}
-open class First{
-    open fun sum(a:Int, b:Int) = a+b
+abstract class RBI{
+    /***This function is not open to override - So all the
+     * banks that fall under RBI should be implementing the same
+     * interest rate
+     */
+    fun homeLoanInterestRate():Double{
+        return 7.65
+    }
+
+    abstract fun personalLoan():Double
 }
 
-class Second:First(){
-    override fun sum(a:Int, b:Int) = a*b
-    fun sum(a:Int, b:Int, c:Int) = super.sum(10,20)+c
+class SBI:RBI(){
+    override fun personalLoan(): Double {
+        return 6.2
+    }
+}
+
+class ICICI:RBI(){
+    override fun personalLoan(): Double {
+        return 7.8
+    }
+}
+
+fun main(){
+    val s:SBI = SBI()
+    println(s.homeLoanInterestRate())
+    println(s.personalLoan())
 }

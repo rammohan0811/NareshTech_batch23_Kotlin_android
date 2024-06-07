@@ -1126,6 +1126,58 @@ fun main(){
 }
 ```
 
+```kotlin
+package com.nareshit.kotlinprograms
+
+/**
+ * When you bundle up the data (fields) and the methods (functions) that operate
+ * on data in a single unit (Which is called as Class).
+ * You can protect your data from unintended or harmful changes
+ * by restricting the access to the internal implementation details.
+ *
+ * Visibility Modifiers (Access Modifiers)
+ * - private
+ * - protected
+ * - internal
+ * - Public (default)
+ * */
+
+class BankAccount(private var balance:Double){
+    // public method to deposit an amount
+    fun deposit(amount:Double){
+        if(amount>0){
+            balance += amount
+            println("Deposited $amount in your account")
+            println("The new balance is $balance")
+        }else{
+            println("Deposit amount must always be positive.")
+        }
+    }
+    
+    fun withdraw(amount:Double){
+        if(amount>0 && amount<=balance){
+            balance -= amount
+            println("Successful. current balance: $balance")
+        }else{
+            println("Insufficient funds")
+        }
+    }
+    
+    fun getBalance():Double{
+        return balance
+    }
+}
+
+/**
+ * By using encapsulation, the internal state of the `BankAccount` class 
+ * (ie., balance property)
+ * is protected from direct access and modifications from outside the class. 
+ * Only the methods provided by the class can modify the balance, ensuring that the class
+ * maintains the control over how the balance is accessed and changed. 
+ * This helps maintain integrity of the data and prevents unintended side effects.*/
+```
+
+
 ```
 package com.nareshit.kotlinprograms
 
@@ -1196,3 +1248,81 @@ class Second:First(){
 
 Process finished with exit code 0
 ```
+
+### Abstract classes in Kotlin
+Abstract classes are those classes defined with `abstract` keyword. In an abstract class you can have methods with body and methods without a body
+- Abstract classes annot be instantiated on its own and must be subclassed.
+- It can have abstract methods (Unimplemention)
+- It can have concrete methods (defined)
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+abstract class Shape{
+    abstract fun calculateArea():Double
+
+    fun printDescription(){
+        println("This is a shape")
+    }
+}
+
+class Circle(val radius:Double):Shape(){
+    override fun calculateArea(): Double {
+        return Math.PI *radius*radius
+    }
+}
+
+class Rectangle(val length:Double, val breadth:Double):Shape(){
+    override fun calculateArea(): Double {
+        return length*breadth
+    }
+}
+
+fun main() {
+    val c:Circle = Circle(12.23)
+    println(c.calculateArea())
+    c.printDescription()
+
+    val c2:Rectangle = Rectangle(12.23,34.45)
+    println(c2.calculateArea())
+    c2.printDescription()
+}
+```
+
+***Another Example***
+```kotlin
+package com.nareshit.kotlinprograms
+
+abstract class RBI{
+    /***This function is not open to override - So all the
+     * banks that fall under RBI should be implementing the same
+     * interest rate
+     */
+    fun homeLoanInterestRate():Double{
+        return 7.65
+    }
+
+    abstract fun personalLoan():Double
+}
+
+class SBI:RBI(){
+    override fun personalLoan(): Double {
+        return 6.2
+    }
+}
+
+class ICICI:RBI(){
+    override fun personalLoan(): Double {
+        return 7.8
+    }
+}
+
+fun main(){
+    val s:SBI = SBI()
+    println(s.homeLoanInterestRate())
+    println(s.personalLoan())
+}
+```
+
+[Explore Basics here](https://kotlinlang.org/docs/basic-syntax.html#print-to-the-standard-output)
+
