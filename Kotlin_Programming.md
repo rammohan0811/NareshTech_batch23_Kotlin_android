@@ -1326,3 +1326,81 @@ fun main(){
 
 [Explore Basics here](https://kotlinlang.org/docs/basic-syntax.html#print-to-the-standard-output)
 
+### Interfaces in Kotlin
+In Kotlin, Interfaces are similar to those in java, but with some additional features and more concise syntax.
+
+#### Declare an Interface
+```kotlin
+interface MyInterface{
+    fun myMethod()
+    val myProperty:String
+}
+```
+
+#### Implementing an Interface
+Classes in kotlin can implement one or more interfaces using `:` symbol
+
+```kotlin
+class MyClass : MyInterface{
+    override val myProperty:String = "Hello"
+
+    override fun myMethod(){
+        println("My Method implementation")
+    }
+}
+```
+
+#### Default Implementations
+Kotlin interfaces can provide default implementations for Methods.
+
+```kotlin
+interface MyInterface{
+    fun myMethod(){
+        println("Default Implementation")
+    }
+}
+```
+
+With Interfaces, you can implement Multiple Inheritance.
+
+```kotlin
+package com.nareshit.kotlinprograms
+
+interface Animal{
+    val name:String
+    fun sound():String
+
+    // Default implementation of Method
+    fun printDetails(){
+        println("Animal:$name , Sound: ${sound()}")
+    }
+}
+
+class Dog(override val name:String):Animal{
+    override fun sound(): String = "Bark"
+}
+
+class Cat(override val name:String):Animal{
+    override fun sound(): String = "Meow"
+}
+
+fun main(){
+    val dog = Dog("Buddy")
+    val cat = Cat("Whiskers")
+
+    dog.printDetails()
+    cat.printDetails()
+}
+```
+
+```
+Animal:Buddy , Sound: Bark
+Animal:Whiskers , Sound: Meow
+
+Process finished with exit code 0
+```
+
+---End---
+
+
+

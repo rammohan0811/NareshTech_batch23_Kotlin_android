@@ -1,31 +1,27 @@
 package com.nareshit.kotlinprograms
 
-abstract class RBI{
-    /***This function is not open to override - So all the
-     * banks that fall under RBI should be implementing the same
-     * interest rate
-     */
-    fun homeLoanInterestRate():Double{
-        return 7.65
-    }
+interface Animal{
+    val name:String
+    fun sound():String
 
-    abstract fun personalLoan():Double
-}
-
-class SBI:RBI(){
-    override fun personalLoan(): Double {
-        return 6.2
+    // Default implementation of Method
+    fun printDetails(){
+        println("Animal:$name , Sound: ${sound()}")
     }
 }
 
-class ICICI:RBI(){
-    override fun personalLoan(): Double {
-        return 7.8
-    }
+class Dog(override val name:String):Animal{
+    override fun sound(): String = "Bark"
+}
+
+class Cat(override val name:String):Animal{
+    override fun sound(): String = "Meow"
 }
 
 fun main(){
-    val s:SBI = SBI()
-    println(s.homeLoanInterestRate())
-    println(s.personalLoan())
+    val dog = Dog("Buddy")
+    val cat = Cat("Whiskers")
+
+    dog.printDetails()
+    cat.printDetails()
 }
