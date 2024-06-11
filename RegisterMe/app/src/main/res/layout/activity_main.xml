@@ -1,89 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_margin="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <!--We use edit text boxes to read input-->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:hint="Enter your name" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:hint="Enter your age"
-        android:inputType="number" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Male" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Female" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Prefer neutral" />
-    </RadioGroup>
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-        <CheckBox
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Telugu" />
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:rotation="-8"
+            android:text="@string/app_name"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <!--We use edit text boxes to read input-->
+        <EditText
+            android:id="@+id/person_name"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="Enter your name" />
 
-        <CheckBox
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hindi" />
+        <EditText
+            android:id="@+id/person_age"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="Enter your age"
+            android:inputType="number" />
 
-        <CheckBox
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="English" />
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Female" />
+
+            <RadioButton
+                android:id="@+id/pns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Prefer neutral" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Japanese" />
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Telugu" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hindi" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="English" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Japanese" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:entries="@array/countries" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Interested ?" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:text="This is not going to be displayed when you run the app" />
+
+        <Button
+            android:onClick="getDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="submit" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <Spinner
-        android:entries="@array/countries"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"/>
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:text="Interested ?"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
