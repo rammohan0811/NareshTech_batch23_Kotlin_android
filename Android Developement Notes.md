@@ -28,3 +28,12 @@ There are two types of intents:
 
 **Implicit intents** do not name a specific component, but instead declare a general action to perform, which allows a component from another app to handle it. For example, if you want to show the user a location on a map, you can use an implicit intent to request that another capable app show a specified location on a map.
 
+### Material Design Library
+- Design library by google
+- Lot of guidelines used to make your designs look splendid. 
+- Follow [this link](https://m3.material.io/) to learn more
+- Explore [the github page](https://github.com/material-components/material-components-android/tree/master/docs/components) for using the components directly.
+
+### How to create a new Activity (Screen) ?
+![Process](/image1.png)
+![Next Step](/image2.png)
