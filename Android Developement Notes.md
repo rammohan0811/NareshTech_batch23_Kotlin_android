@@ -37,3 +37,28 @@ There are two types of intents:
 ### How to create a new Activity (Screen) ?
 ![Process](/image1.png)
 ![Next Step](/image2.png)
+
+#### Starting an Activity for Result
+1. Define the ActivityResultLauncher
+   1. **ActivityResultLauncher** variable in your activity or fragment should be created. You will also need to define the callback that will handle the result from the launched activity.
+2. Register the Launcher
+   1. Register the launcher in the onCreate method.
+3. Launch the Activity
+   1. Use the launch(...) method to start the activity
+4. Handle the result
+
+[Refer to Official Doc](https://developer.android.com/training/basics/intents/result)
+
+### Implicit Intents (Common Intents)
+General purpose intents that we use. 
+Examples:
+1. You want to open a link in the default browser
+2. You want to show a certain location to your users on Google Maps
+3. You want to dail a friend from your application.
+4. you want to open contacts app to pick a contact. 
+
+[Refer to the official documentation](https://developer.android.com/guide/components/intents-common)
+
+##### Assignment
+Work with two more common intents
+(Open a browser with a link)
