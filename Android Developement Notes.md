@@ -68,3 +68,14 @@ Work with two more common intents
 
 [Excellent Codelab for Constraint Layout](https://developer.android.com/codelabs/constraint-layout#0)
 
+### ListView
+- ListView is a legacy view that helps us to display data in a list. 
+- [official Documentation link](https://developer.android.com/reference/android/widget/ListView)
+
+### Recyclerview
+- Recyclerview is an advanced viewgroup to display large data in an efficient yet performant way.
+
+[Official Documentation](https://developer.android.com/develop/ui/views/layout/recyclerview)
+
+[Slides Link(By Pavan)](https://docs.google.com/presentation/d/1nFJqH0OSSZmjaycRzEGE6vvsm6jlxghQyoO15KKbkwc/edit#slide=id.p)
+
