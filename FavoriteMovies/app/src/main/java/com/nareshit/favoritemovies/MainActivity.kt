@@ -5,8 +5,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 data class MovieInfo(val poster:Int,val name:String, val actors:Array<String>)
 
@@ -42,7 +44,10 @@ class MainActivity : AppCompatActivity() {
         val fma = FavMoviesAdapter(this,movies)
         rv.adapter = fma
         // tODO 6: Set up Layout Manager
-        rv.layoutManager =
-            LinearLayoutManager(this)
+        /*rv.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)*/
+        rv.layoutManager = GridLayoutManager(this,2)
+        /*rv.layoutManager = StaggeredGridLayoutManager(2,
+            StaggeredGridLayoutManager.VERTICAL)*/
     }
 }

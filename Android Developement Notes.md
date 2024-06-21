@@ -79,3 +79,8 @@ Work with two more common intents
 
 [Slides Link(By Pavan)](https://docs.google.com/presentation/d/1nFJqH0OSSZmjaycRzEGE6vvsm6jlxghQyoO15KKbkwc/edit#slide=id.p)
 
+#### Assignment
+Create a Favorite Destinations application where, you display the top 20 of your favorite destinations on the recyclerview as follows. 
+
+![Image](/ass_img.png)
+

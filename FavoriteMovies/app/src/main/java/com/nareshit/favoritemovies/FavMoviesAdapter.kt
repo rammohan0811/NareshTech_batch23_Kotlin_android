@@ -1,14 +1,17 @@
 package com.nareshit.favoritemovies
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Movie
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.google.android.material.snackbar.Snackbar
 
 class FavMoviesAdapter(val context:Context, val movies:List<MovieInfo>) :Adapter<FavMoviesAdapter.FavMoviesVH>() {
 
@@ -36,6 +39,12 @@ class FavMoviesAdapter(val context:Context, val movies:List<MovieInfo>) :Adapter
         holder.an.text = ""
         for(i in movies.get(position).actors){
             holder.an.append("$i ")
+        }
+
+        holder.iv.setOnClickListener { v->
+            val i = Intent(context,MovieDetails::class.java)
+            i.putExtra("DATA",movies.get(position).poster)
+            context.startActivity(i)
         }
     }
 }
