@@ -74,7 +74,68 @@ This gives you the info about how many files are already saved as a version, how
 - git checkout <Comit id>
 - git checkout master
 
+#### Branching
+Suppose you want to develop a module in a project with out disturbing the existing code. Because you don't know how the new module is going to effect the output. Hence, it is recommended that you work on a separate branch. Once you are confident that the changes that you made is not effecting the output negatively, you can merge the changes back to the master branch. 
 
+By default, all the repositories consists of a branch called master. 
 
+![Notes](/branching.webp)
 
+***Check how many branches are there***
 
+- git branch
+
+***How to create a new branch ?***
+
+- git branch branch_name
+
+By creating a new branch, you are making a commit. Along with that, you also get the code existing on the current branch.
+
+***Switch to another branch***
+- git switch branch_name
+
+***Merge back a branch to another branch***
+- Switch the branch into which you want to merge the immediate branch
+- git switch branch
+
+- You can merge
+- git merge branch_name
+
+**Note**: Merging a branch into another branch will not delete the branch.
+
+***delete a branch***
+
+- git branch -d branch_name
+
+### GitHub
+
+GitHub is a popular platform among developers for software development. Here's a breakdown of its key features:
+
+* **Version control:**  Imagine you're writing a piece of code and keep making changes to it. With GitHub, you can track these changes and revert to older versions if needed. This functionality is powered by Git, a version control system.
+
+* **Collaboration:**  GitHub allows developers to work together on projects.  Multiple people can work on the same codebase simultaneously, seeing each other's changes and merging them smoothly.
+
+* **Code sharing:**  GitHub lets developers share their code publicly or privately. Public repositories are a great way to showcase your work, contribute to open-source projects, and learn from others' code.
+
+* **Social networking:**  GitHub is a social network for developers. You can follow other developers, see their projects, and contribute to discussions. This is a great way to connect with other programmers and learn new things.
+
+* **Additional features:**  Beyond core functionalities, GitHub offers features like project management tools, wikis for documentation, and security options.
+
+In essence, GitHub is a one-stop shop for developers to build software collaboratively. If you're interested in learning more, you can search for  "What is GitHub" [https://www.youtube.com/github](https://www.youtube.com/github).
+
+**Step 1**: Create an account on [GitHub](https://github.com)
+
+**Step 2:** Creating a repository  
+**Step 3:** Add a remote in an existing repository (Local)  
+Check the remotes available
+- git remote
+
+Add a remote
+- git remote add var_name url
+- git remote add pavan https://github.com/tadipavankumarreddy/git-practice-batch-23.git
+
+**Step 4:** Push the changes
+- git push pavan master
+
+**How do you pull changes ?**
+- git pull pavan master
