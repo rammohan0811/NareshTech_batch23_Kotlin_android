@@ -89,4 +89,76 @@ A Fragment represents a reusable portion of your app's UI. A fragment defines an
 
 [Official Link](https://developer.android.com/guide/fragments)
 
-#### Create a Fragment
+
+#### Fragment Lifecycle
+![fragmentLifeCycle](/fragment-view-lifecycle.png)
+
+I'd be glad to explain companion objects in Kotlin:
+
+**Companion Objects in Kotlin**
+
+In Kotlin, a companion object is a special type of object that's closely associated with a class. It allows you to define members (functions, properties) that can be accessed without creating an instance of the class itself. This is similar to the concept of static members in other languages like Java, but with some key differences.
+
+**Key Characteristics:**
+
+- **Declared within a class:** You define a companion object using the `companion object` keyword inside a class declaration.
+- **Singleton instance:** The Kotlin compiler guarantees there will be only one instance of the companion object for the entire class.
+- **Access using class name:** You can access the companion object's members directly using the class name, without needing an object reference.
+
+**Use Cases for Companion Objects:**
+
+- **Factory methods:** Companion objects are commonly used to create factory methods that provide a convenient way to instantiate the class. For example:
+
+```kotlin
+class User {
+    companion object Factory {
+        fun create(name: String, email: String): User {
+            return User(name, email)
+        }
+    }
+}
+
+val user1 = User.Factory.create("Alice", "alice@example.com")
+```
+
+- **Utility functions:** Companion objects can hold utility functions related to the class that don't require an object instance. For instance:
+
+```kotlin
+class MathUtils {
+    companion object {
+        fun add(x: Int, y: Int): Int {
+            return x + y
+        }
+    }
+}
+
+val sum = MathUtils.add(5, 3) // Access using class name
+```
+
+- **Constants:** Companion objects are suitable for defining constants associated with the class:
+
+```kotlin
+class NetworkConfig {
+    companion object {
+        const val BASE_URL = "https://api.example.com"
+    }
+}
+
+val url = NetworkConfig.BASE_URL
+```
+
+**Advantages of Companion Objects:**
+
+- **Improved code readability:** By keeping utility functions and constants related to the class within the companion object, you enhance code organization and maintainability.
+- **Singleton-like behavior:** Companion objects provide a single instance for utility functions and constants, ensuring consistency across the application.
+
+**Key Differences from Java Static Members:**
+
+- **Not a direct equivalent:** While companion objects offer similar functionality to static members, they aren't a perfect one-to-one mapping. Companion objects can inherit from other classes or implement interfaces, which isn't possible with Java static members.
+- **Focus on object-oriented design:** Kotlin emphasizes object-oriented principles, and companion objects are designed to complement that approach.
+
+In essence, companion objects provide a clean and object-oriented way to define class-level functionality and constants in Kotlin, promoting better code organization and maintainability.
+
+- From static context, you cannot access instance context.
+- From Instance Context, you can access the static context.
+
