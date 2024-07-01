@@ -162,3 +162,16 @@ In essence, companion objects provide a clean and object-oriented way to define 
 - From static context, you cannot access instance context.
 - From Instance Context, you can access the static context.
 
+### Tab Navigation
+- [ViewPager](https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2) Swipe views let you navigate between sibling screens, such as tabs, with a horizontal finger gesture, or swipe. This navigation pattern is also referred to as horizontal paging. 
+  - Try [View Pager 2](https://developer.android.com/develop/ui/views/animations/screen-slide-2) here
+- [TabLayout](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout) TabLayout provides a horizontal layout to display tabs.
+
+Population of the tabs to display is done through TabLayout.Tab instances. You create tabs via newTab(). From there you can change the tab's label or icon via TabLayout.Tab.setText(int) and TabLayout.Tab.setIcon(int) respectively. To display the tab, you need to add it to the layout via one of the addTab(Tab) methods.
+
+**Explore NavigationDrawer, BottomNavigation & UpNavigation**
+
+**Fragments do not handle the back stack by default**
+
+
+
