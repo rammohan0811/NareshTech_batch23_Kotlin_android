@@ -173,5 +173,18 @@ Population of the tabs to display is done through TabLayout.Tab instances. You c
 
 **Fragments do not handle the back stack by default**
 
+#### Navigation Components in Android
+Navigation refers to the interactions that let users navigate across, into, and back out from the different pieces of content within your app.
+
+Android Jetpack's Navigation component includes the Navigation library, Safe Args Gradle plug-in, and tooling to help you implement app navigation. The Navigation component handles diverse navigation use cases, from straightforward button clicks to more complex patterns, such as app bars and the navigation drawer.
+
+[Learn More here](https://developer.android.com/guide/navigation)
+
+**Learn the navigation components here**
+![Navigation Components](/nav_comps.png)
+
+[Youtube video](https://youtu.be/NqpyCKlYLVU)
+
+
 
 
