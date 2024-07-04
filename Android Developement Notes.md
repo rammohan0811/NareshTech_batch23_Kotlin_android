@@ -185,6 +185,14 @@ Android Jetpack's Navigation component includes the Navigation library, Safe Arg
 
 [Youtube video](https://youtu.be/NqpyCKlYLVU)
 
+#### Public APIs
+A list of APIs that can fetch you data in various categories. 
+[Link](https://github.com/public-apis/public-apis)
+
+JSON - Java script Object Notation
+
+Access the slide deck for [AsyncTask](https://docs.google.com/presentation/d/1A7anDTS8NQCunbxoJnqJqkSHNFCvRIn9moE7Zww-gds/edit#slide=id.g116d7d9d49_3_13)
+
 
 
 
