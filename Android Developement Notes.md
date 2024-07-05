@@ -193,6 +193,12 @@ JSON - Java script Object Notation
 
 Access the slide deck for [AsyncTask](https://docs.google.com/presentation/d/1A7anDTS8NQCunbxoJnqJqkSHNFCvRIn9moE7Zww-gds/edit#slide=id.g116d7d9d49_3_13)
 
+### Using Volley Library to do networking in android
+
+Library that we are going to use : [Google Books](https://developers.google.com/books)
+
+[Volley Documentation](https://google.github.io/volley/)
+
 
 
 
