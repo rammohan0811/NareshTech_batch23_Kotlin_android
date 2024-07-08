@@ -199,6 +199,11 @@ Library that we are going to use : [Google Books](https://developers.google.com/
 
 [Volley Documentation](https://google.github.io/volley/)
 
+### GSON Library
+This library seralizes and de-serializes the java objects to json and vice-versa. 
+
+[Link](https://github.com/google/gson?tab=readme-ov-file)
+
 
 
 

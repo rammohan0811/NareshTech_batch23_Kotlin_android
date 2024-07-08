@@ -9,16 +9,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
-    lateinit var editText: EditText
-    lateinit var textView:TextView
+    lateinit var recyclerView: RecyclerView
     lateinit var progressBar:ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,15 +33,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        editText = findViewById(R.id.search_query)
-        textView = findViewById(R.id.textView)
+
         progressBar = findViewById(R.id.progressBar)
-        progressBar.visibility = View.INVISIBLE
+        recyclerView = findViewById(R.id.recyclerview)
+
+        val sq = intent.getStringExtra("SEARCH")
+        fetchBooks(sq!!)
     }
 
-    fun fetchBooks(view: View) {
-        progressBar.visibility = View.VISIBLE
-        val s:String = editText.text.toString()
+    private fun fetchBooks(s:String) {
         // Get data from a network call
         val queue = Volley.newRequestQueue(this)
         val stringRequest = StringRequest(Request.Method.GET,
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 progressBar.visibility = View.INVISIBLE
             },
             { error ->
-                textView.text = error.message
+
                 progressBar.visibility = View.INVISIBLE
             })
 
@@ -57,15 +59,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun parseData(response: String?) {
-        // Perform JSON parsing
-        val obj:JSONObject = JSONObject(response)
-        val arr:JSONArray = obj.getJSONArray("items")
-        textView.setText("")
-        for(i in 0..arr.length()-1) {
-            val item: JSONObject = arr.getJSONObject(i)
-            val volInf:JSONObject = item.getJSONObject("volumeInfo")
-            val t:String = volInf.getString("title")
-            textView.append("$t\n\n")
-        }
+       val gson:Gson = Gson()
+        val sd:Source = gson.fromJson(response,Source::class.java)
+        val ba = BooksAdapter(applicationContext,sd)
+        recyclerView.adapter = ba
+        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 }
