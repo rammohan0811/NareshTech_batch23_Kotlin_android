@@ -204,6 +204,11 @@ This library seralizes and de-serializes the java objects to json and vice-versa
 
 [Link](https://github.com/google/gson?tab=readme-ov-file)
 
+Use this [link](https://json2kt.com/) to convert the json data to kotlin classes directly by just taking the json response.
+
+### Image Loading library
+[link](https://github.com/bumptech/glide)
+
 
 
 
