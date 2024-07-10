@@ -209,6 +209,35 @@ Use this [link](https://json2kt.com/) to convert the json data to kotlin classes
 ### Image Loading library
 [link](https://github.com/bumptech/glide)
 
+**Retrofit**: Networking library for android
+
+[Official Link](https://square.github.io/retrofit/)
+
+**Volley vs retrofit**
+
+**Volley**  
+***Pros***
+- **Simplicity:** Easy to use and integrate into android projects. 
+- **Built-In-Features**:Automatic scheduling of Network requests, Multiple concurrent network connections, Caching is also in place.
+- **Out of the Box Support**: Volley works well for small to medium-sized applications. 
+
+***Cons***
+- **Scalability**: Can be less efficient for large-scale applications or complex data structures
+- **Customization**: Limited in terms of customization and flexibility in comparision with Retrofit.
+- **Error Handling**: can be less intuitive. 
+
+**Retrofit**  
+***Pros***
+- **Flexibility**: Highly customizable and can handle complex APIs easily. 
+- **Efficiency**: Uses OkHttp for efficient network operations
+- **serialization**: Supports various serialization libraries (Gson, Moshi, Protobuff...)
+- **Type Safety**: Strongly types interfaces, which make code more robust and easier to debug. 
+- **RxJava Support**: to write reactive programming (publish-subscribe pattern).
+- **Error Handling**: More advanced and intutive error handling
+
+***Cons***
+- **Learning Curve**: More complex to set up and requires a bit more intial configuration. 
+
 
 
 
