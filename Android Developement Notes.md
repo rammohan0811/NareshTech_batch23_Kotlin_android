@@ -238,6 +238,93 @@ Use this [link](https://json2kt.com/) to convert the json data to kotlin classes
 ***Cons***
 - **Learning Curve**: More complex to set up and requires a bit more intial configuration. 
 
+### GET request using Retrofit
 
+#### Step 1:
+Add `INTERNET` Permission in the `android_manifest.xml`
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
 
+#### Step 2:
+Add the dependencies `build.gradle(Module:app)`
+
+```groovy
+implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+```
+
+#### Step 3:
+Create a model class (Data class) to match the json response that is returned when the url is run.
+
+`Model Class`
+```kotlin
+package com.nareshit.retrofit
+
+import com.google.gson.annotations.SerializedName
+import java.io.Serial
+// TODO 3
+data class FakeGet(
+    @SerializedName("userId") var userId:Int? = null,
+    @SerializedName("id") var id:Int? = null,
+    @SerializedName("title") var title:String? = null,
+    @SerializedName("body") var body:String? = null
+)
+```
+
+We are creating this model class for the following json data that will be returned when the "https://jsonplaceholder.typicode.com/posts/1" is run
+
+```json
+{
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}
+```
+
+#### Step 4:
+Create a kotlin interface to maintain all the kinds of requests that you want to perform. Create individual methods (abstract) to perform each request kind. 
+
+```kotlin
+package com.nareshit.retrofit
+
+import retrofit2.Call
+import retrofit2.http.GET
+
+// TODO 4
+interface JsonTypicodeInterface {
+
+    @GET("posts/1")
+    fun getData(): Call<FakeGet>
+}
+```
+
+#### Step 5:
+Create a retrofit object as shown below by adding your own choice of converter factory.
+This code usually goes in `activity`, `service` or `fragment`.
+
+```kotlin
+val retrofit:Retrofit = Retrofit.Builder()
+            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+jsonTypicodeInterface = retrofit.create(JsonTypicodeInterface::class.java)
+```
+
+#### Step 6:
+perform the request
+
+```kotlin
+jsonTypicodeInterface?.getData()?.enqueue(object: Callback<FakeGet>{
+            override fun onResponse(p0: Call<FakeGet>, p1: Response<FakeGet>) {
+                val posts = p1.body()
+                Log.v("MAIN",posts.toString())
+            }
+
+            override fun onFailure(p0: Call<FakeGet>, p1: Throwable) {
+
+            }
+        })
+```
 
