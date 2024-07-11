@@ -328,3 +328,80 @@ jsonTypicodeInterface?.getData()?.enqueue(object: Callback<FakeGet>{
         })
 ```
 
+### Perform a POST request
+
+#### Step 1:
+Create a model class to match your request json data.
+
+```json
+{
+    title: 'foo',
+    body: 'bar',
+    userId: 1,
+}
+```
+
+```koltin
+package com.nareshit.retrofit
+
+data class PostRequest(val title:String, val body:String, val id:Int)
+```
+
+#### Step 3:
+you will get the json data from the post url, you need to create a model class (Data class) to match the data that you get
+
+```Json
+{
+  id: 101,
+  title: 'foo',
+  body: 'bar',
+  userId: 1
+}
+```
+
+```kotlin
+package com.nareshit.retrofit
+
+data class PostResponse(val id:Int, val title:String, val body:String, val userId:Int)
+```
+
+#### Step 4:
+Create a method for post request in the interface.
+
+```kotlin
+package com.nareshit.retrofit
+
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+
+// TODO 4
+interface JsonTypicodeInterface {
+
+    @GET("posts/1")
+    fun getData(): Call<FakeGet>
+
+    @POST("posts")
+    fun postData(@Body postRequest: PostRequest):Call<PostResponse>
+}
+```
+
+#### Step 5:
+Write post method
+
+```kotlin
+jsonTypicodeInterface?.postData(PostRequest("Pavan","Trainer", 100))?.enqueue(object:Callback<PostResponse>{
+            override fun onResponse(p0: Call<PostResponse>, p1: Response<PostResponse>) {
+                Log.d("MAIN",p1.body().toString())
+            }
+
+            override fun onFailure(p0: Call<PostResponse>, p1: Throwable) {
+
+            }
+        })
+```
+
+#### Assignment
+
+Get the google books data after the user entering the book the user wants to search using retrofit library.

@@ -51,5 +51,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-    fun postRequest(view: View) {}
+    fun postRequest(view: View) {
+        jsonTypicodeInterface?.postData(PostRequest("Pavan","Trainer", 100))?.enqueue(object:Callback<PostResponse>{
+            override fun onResponse(p0: Call<PostResponse>, p1: Response<PostResponse>) {
+                Log.d("MAIN",p1.body().toString())
+            }
+
+            override fun onFailure(p0: Call<PostResponse>, p1: Throwable) {
+
+            }
+        })
+    }
 }
