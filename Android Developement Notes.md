@@ -405,3 +405,12 @@ jsonTypicodeInterface?.postData(PostRequest("Pavan","Trainer", 100))?.enqueue(ob
 #### Assignment
 
 Get the google books data after the user entering the book the user wants to search using retrofit library.
+
+### Notifications in Android
+Notifications are messages that gets displayed outside the regular app UI. 
+Notificaitons are very important to keep up the user engagement with the application.
+
+1. [Official Documentation](https://developer.android.com/develop/ui/views/notifications)
+
+2. [Slides - Google Training team](https://docs.google.com/presentation/d/1Ch8DeXY5D2xpZ5248x_X-_2eycRW7emzdSHMur32Dg0/edit#slide=id.g116d7d9d49_3_13)
+
