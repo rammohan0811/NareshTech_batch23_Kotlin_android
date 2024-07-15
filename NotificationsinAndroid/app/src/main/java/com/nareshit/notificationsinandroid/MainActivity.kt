@@ -6,12 +6,16 @@ import android.app.NotificationManager
 import android.app.NotificationManager.IMPORTANCE_HIGH
 import android.app.PendingIntent
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationCompat.BigPictureStyle
+import androidx.core.app.NotificationCompat.BigTextStyle
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -48,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         val pi:PendingIntent = PendingIntent.getActivity(applicationContext, 23,i,
             PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
 
+        // Convert JPEG image to Bitmap
+        val b:Bitmap = BitmapFactory.decodeResource(resources,R.drawable.abc)
+            /*.setStyle(BigPictureStyle().bigPicture(b))*/
         val notification:Notification = NotificationCompat.Builder(this,"pavan")
             .setSmallIcon(R.drawable.baseline_beach_access_24)
             .setContentTitle("You got a Notification")
@@ -56,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             .setContentIntent(pi)
             .addAction(R.drawable.baseline_beach_access_24, "Reply", pi)
             .addAction(R.drawable.baseline_beach_access_24, "Reply", pi)
+            .setStyle(BigTextStyle().bigText("Android app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\nAndroid app development is quite easy to do\n"))
             .setAutoCancel(true)
             .build()
 

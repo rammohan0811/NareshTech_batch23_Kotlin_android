@@ -414,3 +414,23 @@ Notificaitons are very important to keep up the user engagement with the applica
 
 2. [Slides - Google Training team](https://docs.google.com/presentation/d/1Ch8DeXY5D2xpZ5248x_X-_2eycRW7emzdSHMur32Dg0/edit#slide=id.g116d7d9d49_3_13)
 
+[Try Media Notifications](https://developer.android.com/reference/android/app/Notification.MediaStyle)
+
+### Broadcast Receivers
+Android Operating system releases a signal in the device so that other applications can receive the signals and perform certain kind of an action. This is called Broadcasting. 
+
+**What kind of Signals get released in the android system ?**
+Almost all things that happen in the android system has some kind of significance such as AIRPLANE_MODE_CHANGED, POWER_CONNECTED, POWER_DISCONNECTED, HEADSET_PLUG_IN, BOOT_COMPLETED...
+
+**Broadcasts**
+- System Generated Broadcasts
+- App generated Broadcasts (Custom Broadcasts)
+
+**Registering for a broadcast**
+- Static registration - where we use manifest file to register for the broadcast
+- Dynamic registration - this happens when the code is run
+  
+from API level 26 (Oreo), most of the broadcasts are excempted from static registration. 
+
+See the list of broadcasts that can be registered statically here in this [link](https://developer.android.com/develop/background-work/background-tasks/broadcasts/broadcast-exceptions#:~:text=As%20part%20of%20the%20Android,are%20exempted%20from%20these%20limitations.)
+
