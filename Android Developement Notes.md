@@ -434,3 +434,4 @@ from API level 26 (Oreo), most of the broadcasts are excempted from static regis
 
 See the list of broadcasts that can be registered statically here in this [link](https://developer.android.com/develop/background-work/background-tasks/broadcasts/broadcast-exceptions#:~:text=As%20part%20of%20the%20Android,are%20exempted%20from%20these%20limitations.)
 
+### [Alarm Manager](https://docs.google.com/presentation/d/1Xz5TVqIsKWR2J1-OdZHrSh3mE52AIAWeVhhVNkVdnQE/edit#slide=id.g18e5d42159_0_330)
