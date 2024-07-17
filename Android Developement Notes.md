@@ -435,3 +435,27 @@ from API level 26 (Oreo), most of the broadcasts are excempted from static regis
 See the list of broadcasts that can be registered statically here in this [link](https://developer.android.com/develop/background-work/background-tasks/broadcasts/broadcast-exceptions#:~:text=As%20part%20of%20the%20Android,are%20exempted%20from%20these%20limitations.)
 
 ### [Alarm Manager](https://docs.google.com/presentation/d/1Xz5TVqIsKWR2J1-OdZHrSh3mE52AIAWeVhhVNkVdnQE/edit#slide=id.g18e5d42159_0_330)
+
+### JobScheduler
+An Intelligent Scheduling algorithm.
+
+Three components
+- JobService
+  - Where you define the task to execute
+  - Remember that these methods are called by the android operating system when the conditions defined in JobInfo meets.
+  - onStartJob(...):Boolean 
+    - True: When the task is been off-loaded to a worker thread 
+    - False: When the task is finished
+  - onStopJob(...):Boolean
+    - True: When the job that is stopped in between its execution is supposed to be re-scheduled.
+    - False: when the job that is stopped in between its execution need not be re-scheduled.
+- JobInfo
+  - Where you will be defining the conditions
+- JobScheduler
+  - Which actually schedules a task to complete
+
+[Official Documentation](https://developer.android.com/reference/android/app/job/JobScheduler)
+
+[Presentation Link](https://docs.google.com/presentation/d/1jWZ10wsLZTPhTl2jcPpa-PpkIbfJAeoVKfUv-eQoSCk/edit#slide=id.g18e75634d0_0_172)
+
+
