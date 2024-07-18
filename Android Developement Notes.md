@@ -459,3 +459,28 @@ Three components
 [Presentation Link](https://docs.google.com/presentation/d/1jWZ10wsLZTPhTl2jcPpa-PpkIbfJAeoVKfUv-eQoSCk/edit#slide=id.g18e75634d0_0_172)
 
 
+### Work Manager
+- This is an advanced library than JobSchduler
+    
+    WorkManager is the recommended solution for persistent work. Work is persistent when it remains scheduled through app restarts and system reboots. Because most background processing is best accomplished through persistent work, WorkManager is the primary recommended API for background processing.
+
+WorkManager handles three types of persistent work:
+
+**Immediate**: Tasks that must begin immediately and complete soon. May be expedited.
+
+**Long Running**: Tasks which might run for longer, potentially longer than 10 minutes.
+
+**Deferrable**: Scheduled tasks that start at a later time and can run periodically.
+
+![Image](/wm.svg)
+
+Type|	Periodicity	|How to access
+----|---------------|-------------
+Immediate|One time|OneTimeWorkRequest and Worker.For expedited work, call setExpedited() on your OneTimeWorkRequest.
+Long Running|One time or periodic|Any WorkRequest or Worker. Call setForeground() in the Worker to handle the notification.
+Deferrable|	One time or periodic|	PeriodicWorkRequest and Worker.
+
+[Official Documentation](https://developer.android.com/topic/libraries/architecture/workmanager)
+
+[Building the work manager](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#work-constraints)
+
