@@ -484,3 +484,25 @@ Deferrable|	One time or periodic|	PeriodicWorkRequest and Worker.
 
 [Building the work manager](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#work-constraints)
 
+### Shared Preferences 
+[Official Document](https://developer.android.com/training/data-storage/shared-preferences)
+
+If you have relatively small amount of data to be stored and used in the application, we use SharedPreferences
+
+
+### SQLite Database in android
+SQL -> Structured Query Language  
+SQlite is a database (that's based on file) for android.   
+All the Basic SQL Queries run smoothly on Android   
+Do not store huge data - keep in mind the device constraints.  
+
+Practice Queries on [SQLiteOnline.com](https://sqliteonline.com/)
+
+Practice the following queries on SQLiteOnline.com
+- Create
+- insert
+- delete
+- drop
+- update
+
+[refer](/SQL%20queries.MD)
