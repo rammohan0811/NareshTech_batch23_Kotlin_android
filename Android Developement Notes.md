@@ -506,3 +506,8 @@ Practice the following queries on SQLiteOnline.com
 - update
 
 [refer](/SQL%20queries.MD)
+
+- SQLiteOpenHelper - this is a class that helps us to manage the database transactions smoothly. 
+- Two methods
+  - onCreate(...) - The database gets created also the tables.
+  - onUpgrade(...) - When there is a change in the schema of the database such as version upgrades and etc., this method gets invoked. 
