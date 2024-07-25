@@ -511,3 +511,11 @@ Practice the following queries on SQLiteOnline.com
 - Two methods
   - onCreate(...) - The database gets created also the tables.
   - onUpgrade(...) - When there is a change in the schema of the database such as version upgrades and etc., this method gets invoked. 
+
+### Content Providers in Android
+An Application that provides data to another application is called "Content Provider". 
+
+![image](/cp.png)
+
+[Official Doc Link](https://developer.android.com/guide/topics/providers/content-provider-basics)
+
