@@ -519,3 +519,28 @@ An Application that provides data to another application is called "Content Prov
 
 [Official Doc Link](https://developer.android.com/guide/topics/providers/content-provider-basics)
 
+### View Binding
+View binding is a feature that makes it easier to write code that interacts with views. ***Once view binding is enabled in a module, it generates a binding class for each XML layout file present in that module.*** An instance of a binding class contains direct references to all views that have an ID in the corresponding layout.
+
+***In most cases, view binding replaces findViewById.***
+
+#### Set-Up
+
+Go to your module level `build.gradle` file and add this code
+
+```kotlin
+android {
+    ...
+    buildFeatures {
+        viewBinding = true
+    }
+}
+```
+
+[Official Document](https://developer.android.com/topic/libraries/view-binding#kts)
+
+The Major advantages of using `Viewbinding` library is that we can avoid `boilerplate code`. Note that boilerplate code is not completely avoidable. 
+
+What is `Boilerplate code`?
+- In computer programming, boilerplate code, or simply boilerplate, are sections of code that are repeated in multiple places with little to no variation. When using languages that are considered verbose, the programmer must write a lot of boilerplate code to accomplish only minor functionality.
+
