@@ -57,10 +57,4 @@ In an Android application, the view could be your activity or a fragment, the mo
 
 ***Conclusion***: MVC and MVVM are both effective in managing the complexity of the application. MCV is simpler and more straightforward, but MVVM offers better seperation of Concerns and support for data binding, making it a more modern and flexible choice. 
 
-[Watch the playlist](https://youtu.be/OKKCPplPMeY)
-
-### View Model
-- An architecture component that is android jetpack libraries.
-
-- The ViewModel class is a business logic or screen level state holder. It exposes state to the UI and encapsulates related business logic. Its principal advantage is that it caches state and persists it through configuration changes. This means that your UI doesn’t have to fetch data again when navigating between activities, or following configuration changes, such as when rotating the screen.
 

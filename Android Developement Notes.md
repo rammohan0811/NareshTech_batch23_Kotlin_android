@@ -544,3 +544,28 @@ The Major advantages of using `Viewbinding` library is that we can avoid `boiler
 What is `Boilerplate code`?
 - In computer programming, boilerplate code, or simply boilerplate, are sections of code that are repeated in multiple places with little to no variation. When using languages that are considered verbose, the programmer must write a lot of boilerplate code to accomplish only minor functionality.
 
+[Watch the playlist](https://youtu.be/OKKCPplPMeY)
+
+### View Model
+- An architecture component that is android jetpack libraries.
+
+- The ViewModel class is a business logic or screen level state holder. It exposes state to the UI and encapsulates related business logic. Its principal advantage is that it caches state and persists it through configuration changes. This means that your UI doesn’t have to fetch data again when navigating between activities, or following configuration changes, such as when rotating the screen.
+
+### Live Data
+LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
+
+### Room Database
+- Room is not separate database. It is based on SQLite only. But this is an abstract layer built on top of SQLite using ORM (Object Relational Mapping). This simplifies the use of Databses in your android apps. 
+
+[Offical Docs](https://developer.android.com/training/data-storage/room)
+
+#### Components in Room Databse
+- Entity
+  - Is a class in which you will represent the entire database table
+  - class name = Table name
+  - Variable names = coulumn names
+- DAO (Database Access Object)
+  - This is an interface and by declaring the methods, the SQL queries are auto created. 
+- RoomDatabase
+  - This is an entry abstract class where the database transactions can be started. 
+
