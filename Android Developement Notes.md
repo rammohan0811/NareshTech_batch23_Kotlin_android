@@ -569,3 +569,12 @@ LiveData is an observable data holder class. Unlike a regular observable, LiveDa
 - RoomDatabase
   - This is an entry abstract class where the database transactions can be started. 
 
+### Firebase
+- Firebase is a google prodct that offers multiple services such as Authentication, crashlytics, Remote Configuration, Real time databases and etc., Basically, firebase is a google cloud product. 
+
+- You can sign in to firebase console by your gmail account. 
+
+[Read about implementing Real time databases here](https://firebase.google.com/docs/database/android/start)
+
+Try Adding data to the databases to firebase at home. also handle the error listener.
+
