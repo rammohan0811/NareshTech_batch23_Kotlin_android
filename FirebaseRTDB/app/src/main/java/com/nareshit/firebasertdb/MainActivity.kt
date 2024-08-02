@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.nareshit.firebasertdb.databinding.ActivityMainBinding
@@ -35,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.INVISIBLE
     }
 
-    data class Person(val name:String, val age:Int)
+    data class Person(val name:String, val age:Int){
+        constructor():this("",0)
+    }
 
     fun saveData(view: View) {
         binding.progressBar.visibility = View.VISIBLE
@@ -46,10 +50,34 @@ class MainActivity : AppCompatActivity() {
         firebaseReference.push().setValue(p).addOnSuccessListener {
             binding.progressBar.visibility = View.INVISIBLE
             Snackbar.make(view,"Data Saved Successfully", Snackbar.LENGTH_LONG).show()
+        }.addOnFailureListener{
+            Snackbar.make(view,"Data save is unsuccessful",Snackbar.LENGTH_LONG).show()
         }
 
         binding.personName.text.clear()
         binding.personAge.text.clear()
     }
-    fun loadData(view: View) {}
+
+    fun loadData(view: View) {
+        binding.progressBar.visibility = ProgressBar.VISIBLE
+
+        val postListener :ValueEventListener= object : ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val stringBuilder = StringBuilder()
+                for (s in datasnapshot.children) {
+                    val person = s.getValue(Person::class.java) as Person
+                    stringBuilder.append("${person.name}  ${person.age}\n")
+                }
+                binding.progressBar.visibility = ProgressBar.INVISIBLE
+                binding.textView.text = stringBuilder.toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                binding.progressBar.visibility = ProgressBar.INVISIBLE
+            }
+        }
+
+        // invoke the post listener
+        firebaseReference.child("Person").addValueEventListener(postListener)
+    }
 }
