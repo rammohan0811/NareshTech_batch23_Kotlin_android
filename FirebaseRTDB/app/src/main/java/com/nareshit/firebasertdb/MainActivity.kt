@@ -78,6 +78,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         // invoke the post listener
-        firebaseReference.child("Person").addValueEventListener(postListener)
+        firebaseReference.addValueEventListener(postListener)
     }
 }
