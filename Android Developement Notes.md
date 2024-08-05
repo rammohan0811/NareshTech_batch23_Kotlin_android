@@ -578,3 +578,11 @@ LiveData is an observable data holder class. Unlike a regular observable, LiveDa
 
 Try Adding data to the databases to firebase at home. also handle the error listener.
 
+### Jetpack UI Compose
+- Design your UI Screens without a need of creating XML file for layout.
+- This gives us flexibility to manage the code related to UI and also the code related to business logic.
+- Faster than XML
+- Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs.
+
+[Official Documentation](https://developer.android.com/develop/ui/compose/documentation)
+
