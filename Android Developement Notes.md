@@ -586,3 +586,126 @@ Try Adding data to the databases to firebase at home. also handle the error list
 
 [Official Documentation](https://developer.android.com/develop/ui/compose/documentation)
 
+### Coroutines
+Co - Cooperative  
+Routines - Functions
+
+#### Synchronous and Asynchronous programming
+
+**Synchronous:** In Synchronous programming, tasks are executed sequentially. One Task must complete before the next one can start. this is like waiting in a single line queue. 
+
+Example:
+
+```Kotlin
+fun synchronousExample(){
+  val result1 = longRunningOperation1()
+  var result2 = longRunningOperation2(result1)
+  //...
+}
+```
+
+**Asynchronous Proggramming:** In Asynchronous programming, tasks can run independently, without waiting for the previous one to finish. This is like having multiple lines in a queue. 
+
+Example:
+
+```kotlin
+suspend fun asynchronousExample(){
+  val result1 = async{longRunningCode1()}
+  val result2 = async{longRunningCode2()}
+  //...
+}
+```
+
+**When to use which**
+
+**Synchronous**: Suitable for simple tasks, short operations and when order of execution is critical. 
+
+**Asynchronous**: Ideal for I/O bound operations (network calls, database queries, etc.,), long running tasks and when improving application resposiveness is important. 
+
+---
+
+Coroutines are a koltin feature that converts async callbacks for long-running tasks, such as network access, into sequential code. 
+
+[Official Documentation](https://developer.android.com/kotlin/coroutines)
+
+- If we have multiple long running tasks, you create multiple threads for each one of them. When there are multiple background threads, the system may run Out of Memory. we can create a single background thread and create multiple coroutines to perform the multiple background operations. By using memory that is required for running one single thread, we can handle multiple background tasks. 
+- Light-Weight threads
+- Like Threads, coroutines can run in parllel, wait for each other and communicate with each other
+- coroutines!=Thread
+- In terms of memory usage, coroutines are comparatively very cheap.
+- You can create thousands of coroutines without any memory issues. 
+
+**What are threads ?**
+- Threads are used to execute concurrent tasks, allowing different parts of the program to run independently.
+- class that can be used for thread is `Thread`.
+- Threads allow for parllelism.
+- They also help to perform async programming. 
+
+```kotlin
+package com.nareshit.coroutines
+
+import kotlin.concurrent.thread
+
+fun main(){
+    println("Main Program starts: ${Thread.currentThread().name}")
+    thread {
+        println("This line runs on:${Thread.currentThread().name}")
+        Thread.sleep(1000)
+        println("This line runs on:${Thread.currentThread().name}")
+    }
+    println("Main Program Ends: ${Thread.currentThread().name}")
+}
+```
+
+Note: Threads run in parallel. The program is not finished until your thread finishes its job. 
+
+#### Coroutine example
+```kotlin
+package com.nareshit.coroutines
+
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
+
+fun main(){
+    println("Main Program starts: ${Thread.currentThread().name}")
+    GlobalScope.launch {
+        // This is where you can run a coroutine
+        println("coroutine 1 starts: ${Thread.currentThread().name}")
+        delay(1000)
+        println("coroutine 1 ends: ${Thread.currentThread().name}")
+    }
+
+    GlobalScope.launch {
+        // This is where you can run a coroutine
+        println("coroutine 1 starts: ${Thread.currentThread().name}")
+        delay(1000)
+        println("coroutine 1 ends: ${Thread.currentThread().name}")
+    }
+
+    Thread.sleep(2500)
+    println("Main Program Ends: ${Thread.currentThread().name}")
+}
+```
+
+**delay() vs Thread.sleep()**
+
+Thread.sleep(1000) -> Block the Thread for 1 second. Now, the thread gets lazy.
+
+delay(1000) -> This should only be written in coroutine context. Only suspends the coroutine for 1 second. This is not going to block the thread at all. Other coroutines that are running can be in running state while the current coroutine is suspended for a second. 
+
+#### Suspend modifier
+- A function with `suspend` modifier is known as suspending function.
+- A suspending function can only be called from a coroutine context or from another suspending function. 
+- delay(...) is also a suspending function.
+
+Now, you want to block the main thread using a coroutine.
+
+```kotlin
+runBlocking{// this creates a coroutine that can block the thread on which it is running
+  delay(3000)
+}
+```
+
+
