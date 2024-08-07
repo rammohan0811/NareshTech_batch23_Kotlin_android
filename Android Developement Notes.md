@@ -708,4 +708,19 @@ runBlocking{// this creates a coroutine that can block the thread on which it is
 }
 ```
 
+#### Three Coroutine Builders
+1. Launch 
+    - This is a coroutine that does not return anything
+2. async
+    - This coroutine returns a deferred object
+3. runBlocking
+    - This coroutine builder blocks the ui thread.
+
+#### Dispatchers
+These dispatchers define where your coroutine has to run 
+- Dispatchers.Main - Lets you run the coroutine on the Main thread
+- Dispatchers.IO - Let's you run the coroutine in a separate thread. 
+- Dispatchers.Default - For CPU Intensive tasks, you use this thread to run your coroutine. 
+
+***Your coroutine's dispatcher will be defined by the scope***
 
