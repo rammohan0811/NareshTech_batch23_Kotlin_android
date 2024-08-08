@@ -724,3 +724,39 @@ These dispatchers define where your coroutine has to run
 
 ***Your coroutine's dispatcher will be defined by the scope***
 
+### Services in Android
+
+A Service is an application component that can perform long-running operations in the background. It does not provide a user interface. Once started, a service might continue running for some time, even after the user switches to another application. Additionally, a component can bind to a service to interact with it and even perform interprocess communication (IPC). For example, a service can handle network transactions, play music, perform file I/O, or interact with a content provider, all from the background.
+
+***A service runs in the main thread of its hosting process; the service does not create its own thread and does not run in a separate process unless you specify otherwise.***
+
+### Three Types of Services
+- ***Foreground service:*** A Kind of service that notifies the user about its running through a notification. 
+  - When you use a foreground service, you must display a notification so that users are actively aware that the service is running. This notification cannot be dismissed unless the service is either stopped or removed from the foreground.
+- ***Background Service:*** A background service performs an operation that isn't directly noticed by the user. For example, if an app used a service to compact its storage, that would usually be a background service.
+
+- ***Bound Service:*** A service is bound when an application component binds to it by calling bindService(). A bound service offers a client-server interface that allows components to interact with the service, send requests, receive results, and even do so across processes with interprocess communication (IPC).
+
+[Official Documentation](https://developer.android.com/develop/background-work/services)
+
+***Service Lifecycle:***
+![Image](/service_lifecycle.png)
+
+***onStartCommand()***
+
+The system invokes this method by calling startService() when another component (such as an activity) requests that the service be started. When this method executes, the service is started and can run in the background indefinitely. If you implement this, it is your responsibility to stop the service when its work is complete by calling stopSelf() or stopService(). If you only want to provide binding, you don't need to implement this method.
+
+***onBind()***
+
+The system invokes this method by calling bindService() when another component wants to bind with the service (such as to perform RPC). In your implementation of this method, you must provide an interface that clients use to communicate with the service by returning an IBinder. You must always implement this method; however, if you don't want to allow binding, you should return null.
+
+***onCreate()***
+
+The system invokes this method to perform one-time setup procedures when the service is initially created (before it calls either onStartCommand() or onBind()). If the service is already running, this method is not called.
+
+***onDestroy()***
+
+The system invokes this method when the service is no longer used and is being destroyed. Your service should implement this to clean up any resources such as threads, registered listeners, or receivers. This is the last call that the service receives.
+
+[Media Player in Android](https://developer.android.com/media/platform/mediaplayer)
+
