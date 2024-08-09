@@ -760,3 +760,40 @@ The system invokes this method when the service is no longer used and is being d
 
 [Media Player in Android](https://developer.android.com/media/platform/mediaplayer)
 
+### Types Of Location Access
+- Allow Only while using the app
+  - Also Known as While in use or Foreground only access.
+  - Added in the android 10
+- Allow One-time
+- Allow All time (Your app needs to be complient with the google location policies)
+- Deny
+
+***Location Providers***
+- NETWORK_PROVIDER 
+  - request a permission to the user (ACCESS_COARSE_LOCATION)
+- GPS_PROVIDER
+  - Request the permission to the user (ACCESS_FINE_LOCATION)
+
+Your app can access the set of supported location services through classes in the `com.google.android.gms.location` package. 
+
+Lets take a look at the main classes
+
+***FusedLocationProviderClient***
+
+- This class is the central component of the location framework. Once created, you use it to request location updates and get the last known location. 
+
+***LocationRequest***
+
+- This is a data object that contains quality of service parameters for requests (intervals of updates, priorities and accuracy)
+- This is passed to the `FusedLocationProviderClient` when you request location updates.
+
+***LocationCallback***
+
+- This is used for receiving notifications when the device location has changed or can no longer be determined. 
+- This is passed to `LocationResult` when you can get the `Location` to save in your database. 
+
+Use this APi key for testing
+`AIzaSyAU_DMRbCLn23RKD2FCa27eQoFwRk8QRLk`
+
+Use it for just testing. 
+
